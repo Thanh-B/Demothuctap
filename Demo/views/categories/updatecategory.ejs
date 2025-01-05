@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trang quản lý của Thành</title>
+
+    <!-- BOOTSTRAP STYLES-->
+    <link href="/css/bootstrap.css" rel="stylesheet" />
+    <!-- FONTAWESOME STYLES-->
+    <link href="/css/font-awesome.css" rel="stylesheet" />
+    <!--CUSTOM BASIC STYLES-->
+    <link href="/css/basic.css" rel="stylesheet" />
+    <!--CUSTOM MAIN STYLES-->
+    <link href="/css/custom.css" rel="stylesheet" />
+    <!-- GOOGLE FONTS-->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+<style>
+       /* Đảm bảo các mục trong dropdown được xếp theo cột */
+       .dropdown-item {
+          display: block;
+          padding: 10px 15px;
+          color: #333;
+      }
+      
+      /* Thêm hiệu ứng hover */
+      .dropdown-item:hover {
+          background-color: #f8f9fa;
+      }
+      /* Giữ cấu trúc ban đầu và thêm hiệu ứng nổi khi nhấn vào */
+.nav-link {
+    font-size: 14px;
+    color: #333;
+    padding: 8px 15px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    position: relative; /* Thêm thuộc tính này để dễ dàng điều chỉnh vị trí */
+}
+
+/* Hiệu ứng hover cho các mục menu */
+.nav-link:hover {
+    background-color: #f8f9fa;
+    color: #007bff;
+    transform: scale(1.05);
+}
+
+/* Thêm hiệu ứng khi nhấn vào các mục menu */
+.nav-link:active {
+    background-color: #007bff; /* Màu nền khi nhấn */
+    color: #ffffff; /* Màu chữ khi nhấn */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Tạo hiệu ứng bóng đổ */
+    transform: scale(0.98); /* Hiệu ứng thu nhỏ khi nhấn */
+}
+
+/* Hiệu ứng hover cho các mục dropdown */
+.dropdown-item {
+    font-size: 14px;
+    padding: 8px 20px;
+    color: #333;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+/* Hiệu ứng hover cho các mục dropdown */
+.dropdown-item:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* Hiệu ứng khi nhấn vào các mục dropdown */
+.dropdown-item:active {
+    background-color: #0056b3;
+    color: #fff;
+}
+button {
+    width: 100%;
+    padding: 12px;
+    margin: 20px 0;
+    background-color: #007bff; /* Màu xanh dương cho nút */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px; /* Kích thước chữ nút */
+    transition: background-color 0.3s ease; /* Thêm hiệu ứng mượt mà cho hover */
+}
+
+/* Button hover */
+button:hover {
+    background-color: #0056b3; /* Màu xanh đậm khi hover */
+}
+
+
+</style>
+
+</head>
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-cls-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/admin">Sản phẩm</a>
+            </div>
+
+            <div class="header-right">
+                <a href="message-task.html" class="btn btn-info" title="New Message"><b>30</b><i class="fa fa-envelope-o fa-2x"></i></a>
+                <a href="message-task.html" class="btn btn-primary" title="New Task"><b>40</b><i class="fa fa-bars fa-2x"></i></a>
+                <a href="login.html" class="btn btn-danger" title="Logout"><i class="fa fa-exclamation-circle fa-2x"></i></a>
+            </div>
+        </nav>
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="nav flex-column" id="main-menu">
+                    <li class="nav-item">
+                        <p>Chào mừng, <%= username %>!</p>
+                        <a class="nav-link" href="/logout">
+                            <i class="fa fa-sign-out-alt"></i> Đăng xuất
+                        </a>
+                    </li>
+        
+                    <!-- Khách hàng -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="customerDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-users menu-icon"></i> Khách hàng
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="customerDropdown">
+                            <a class="dropdown-item" href="/customer"><i class="fa fa-user-plus"></i> Thêm khách hàng</a>
+                            <a class="dropdown-item" href="/selectcustomer"><i class="fa fa-list-alt"></i> Danh sách khách hàng</a>
+                        </div>
+                    </li>
+        
+                    <!-- Category -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="categoryDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-th-list menu-icon"></i> Danh mục
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="categoryDropdown">
+                            <a class="dropdown-item" href="/category"><i class="fa fa-plus-square"></i> Thêm Category</a>
+                            <a class="dropdown-item" href="/selectcategory"><i class="fa fa-list"></i> Danh sách Category</a>
+                        </div>
+                    </li>
+        
+                    <!-- Hãng sản xuất -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="brandDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-industry menu-icon"></i> Nhà xuất bản
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="brandDropdown">
+                            <a class="dropdown-item" href="/brand"><i class="fa fa-cogs"></i> Thêm nhà xuất bản</a>
+                            <a class="dropdown-item" href="/selectbrand"><i class="fa fa-building"></i> Danh sách nhà xuất bản</a>
+                        </div>
+                    </li>
+        
+                    <!-- Sản phẩm -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="productDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-cube menu-icon"></i> Sản phẩm
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="productDropdown">
+                            <a class="dropdown-item" href="/product"><i class="fa fa-plus-circle"></i> Thêm sản phẩm</a>
+                            <a class="dropdown-item" href="/selectproduct"><i class="fa fa-box"></i> Danh sách sản phẩm</a>
+                        </div>
+                    </li>
+        
+                    <!-- Đơn hàng -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="orderDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-shopping-cart menu-icon"></i> Đơn hàng
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="orderDropdown">
+                            <a class="dropdown-item" href="/selectorder"><i class="fa fa-list-alt"></i> Danh sách đơn hàng</a>
+                        </div>
+                    </li>
+        
+                    <!-- Báo cáo -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="reportDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-chart-line menu-icon"></i> Báo cáo
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="reportDropdown">
+                            <a class="dropdown-item" href="/soluong"><i class="fa fa-cube"></i> Báo cáo sản phẩm</a>
+                            <a class="dropdown-item" href="/inventory-report"><i class="fa fa-cube"></i> Báo cáo tồn kho</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        
+        
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper">
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-head-line">CATEGORY UPDATE</h1>
+                        <h1 class="page-subhead-line">This is dummy text , you can replace it with your original text. </h1>
+
+                    </div>
+                </div>
+                <!-- /. ROW  -->
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                UPDATE CATEGORY
+                            </div>
+                            <div class="panel-body">
+                                <form action="/updatecategory/<%= category.id %>" method="POST">
+                                    <!-- Sử dụng trường ẩn để mô phỏng PUT request -->
+                                    <input type="hidden" name="_method" value="PUT" />
+                                    
+                                    <!-- Tên loại -->
+                                    <div class="form-group">
+                                        <label for="categoryname">Tên loại:</label>
+                                        <input type="text" class="form-control" id="categoryname" name="namecategory" value="<%= category.namecategory %>" required placeholder="Nhập tên loại" />
+                                    </div>
+                                    
+                                    <!-- Mô tả -->
+                                    <div class="form-group">
+                                        <label for="description">Mô tả:</label>
+                                        <textarea class="form-control" id="description" name="description" rows="3" required placeholder="Nhập mô tả"><%= category.description %></textarea>
+                                    </div>
+                                    
+                                    <button type="submit" class="btn btn-primary btn-block">Cập nhật loại</button>
+                                </form>
+                            </div>
+                        </div>               
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /. PAGE INNER  -->
+    </div>
+    <!-- /. PAGE WRAPPER  -->
+    </div>
+    <!-- /. WRAPPER  -->
+    <div id="footer-sec">
+        &copy; 2014 YourCompany | Design By : <a href="http://www.binarytheme.com/" target="_blank">BinaryTheme.com</a>
+    </div>
+    <!-- /. FOOTER  -->
+    <!-- SCRIPTS - AT THE BOTTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="js/jquery-1.10.2.js"></script>
+    <!-- BOOTSTRAP SCRIPTS -->
+    <script src="js/bootstrap.js"></script>
+    <!-- METISMENU SCRIPTS -->
+    <script src="js/jquery.metisMenu.js"></script>
+    <!-- CUSTOM SCRIPTS -->
+    <script src="js/custom.js"></script>
+            <!-- Include Bootstrap JS for collapse functionality -->
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
