@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xóa Sản phẩm</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>Xóa Sản phẩm</h1>
+        <form action="/deleteproduct/<%= product._id %>" method="POST">
+            <div class="alert alert-warning">
+                Bạn có chắc chắn muốn xóa sản phẩm "<%= product.nameproduct %>"?
+            </div>
+            <button type="submit" class="btn btn-danger">Xóa</button>
+            <a href="/selectproduct" class="btn btn-secondary">Hủy</a>
+        </form>
+              
+    </div>
+    <script src="/js/bootstrap.min.js"></script>
+</body>
+</html>
