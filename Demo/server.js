@@ -8,6 +8,7 @@ const categoryRoutes = require('./routes/categoryRoutes');
 const brandRoutes = require('./routes/brandRoutes');
 const productRoutes = require('./routes/productRoutes');
 const customerRouter = require('./routes/customerRouter');
+const orderRoutes = require('./routes/orderRoutes');
 const app = express();
 
 app.use(express.static(path.join(__dirname, 'assets')));
@@ -62,7 +63,7 @@ app.use('/', productRoutes);
 
 app.use('/', customerRouter);
 // Đảm bảo chỉ định đúng tiền tố route
-
+app.use('/', orderRoutes);
 app.listen(3000, () => {
     console.log('Server đang chạy tại http://localhost:3000');
 });

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xóa Đơn Hàng</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center text-danger">Xóa Đơn Hàng</h1>
+        <!-- Form xác nhận xóa đơn hàng -->
+        <form action="/deleteorder/<%= order.order_id %>" method="POST" onsubmit="return confirm('Bạn có chắc chắn muốn xóa đơn hàng này không?');">
+            <div class="alert alert-warning text-center">
+                <strong>Bạn có chắc chắn muốn xóa đơn hàng này không?</strong><br>
+                Mã Đơn Hàng: "<%= order.order_id %>"
+            </div>
+            <div class="btn-group">
+                <!-- Nút Xóa -->
+                <button type="submit" class="btn btn-danger">Xóa</button>
+                <!-- Nút Hủy để quay lại trang danh sách đơn hàng -->
+                <a href="/selectorder" class="btn btn-secondary">Hủy</a>
+            </div>
+        </form>
+    </div>
+    <script src="/js/bootstrap.min.js"></script>
+</body>
+</html>

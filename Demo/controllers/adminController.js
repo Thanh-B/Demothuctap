@@ -1,6 +1,6 @@
 const Product = require('../models/product');
 const Customer = require('../models/customer');
-//const Order = require('../models/order');
+const Order = require('../models/order');
 
 exports.getAdminPage = async (req, res) => {
     if (!req.session.userId) {
@@ -10,13 +10,13 @@ exports.getAdminPage = async (req, res) => {
     try {
          const totalProducts = await Product.countDocuments();
          const totalCustomers = await Customer.countDocuments();
-        // const totalOrders = await Order.countDocuments();
+        const totalOrders = await Order.countDocuments();
 
         res.render('admin', {
             username: req.session.username,
             totalProducts: totalProducts,
             totalCustomers: totalCustomers,
-           // totalOrders: totalOrders
+           totalOrders: totalOrders
         });
     } catch (err) {
         console.log(err);
