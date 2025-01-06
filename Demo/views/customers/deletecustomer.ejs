@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xóa Khách hàng</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>Xóa Khách hàng</h1>
+        <form action="/deletecustomer/<%= customer._id %>" method="POST">
+            <div class="alert alert-warning">
+                Bạn có chắc chắn muốn xóa khách hàng này không "<%= customer.name %>"?
+            </div>
+            <button type="submit" class="btn btn-danger">Xóa</button>
+            <a href="/selectcustomer" class="btn btn-secondary">Hủy</a>
+        </form>
+              
+    </div>
+    <script src="/js/bootstrap.min.js"></script>
+</body>
+</html>
