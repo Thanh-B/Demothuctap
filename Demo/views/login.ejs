@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng nhập - Hệ thống quản trị</title>
+
+    <!-- Bootstrap Styles -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- FontAwesome Styles -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
+    <!-- Custom Styles (optional) -->
+    <link href="css/custom.css" rel="stylesheet" />
+</head>
+
+<body style="background-color: #f4f6f9;">
+    <div class="container">
+        <div class="row text-center" style="padding-top: 100px;">
+            <div class="col-md-12">
+                <!-- Add any logo or header here if needed -->
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-sm-8 col-xs-10">
+                <div class="card shadow-lg border-0">
+                    <div class="card-header bg-info text-white text-center">
+                        <h4><i class="fas fa-sign-in-alt"></i> Đăng nhập</h4>
+                    </div>
+                    <div class="card-body">
+                        <form role="form" method="POST" action="/login">
+                            <div class="form-group input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Tên người dùng hoặc Email" name="login" required />
+                            </div>
+                            <div class="form-group input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                                </div>
+                                <input type="password" class="form-control" placeholder="Mật khẩu" name="password" required />
+                            </div>
+
+                            <div class="form-group d-flex justify-content-between">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="rememberMe">
+                                    <label class="form-check-label" for="rememberMe">Ghi nhớ tôi</label>
+                                </div>
+                                <a href="forget-password.html">Quên mật khẩu?</a>
+                            </div>
+
+                            <button type="submit" name="txtsubmit" class="btn btn-primary btn-block">Đăng nhập</button>
+
+                            <hr />
+                            <p class="text-center">Chưa có tài khoản? <a href="/register">Đăng ký ngay</a></p>
+
+                            <div class="text-center mt-3">
+                                <p>Hoặc đăng nhập với:</p>
+                                <div class="d-flex justify-content-center">
+                                    <a href="#" class="btn btn-outline-secondary mx-2">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram" style="width: 30px; height: 30px; margin-right: 10px;">
+                                        Instagram
+                                    </a>
+                                    <a href="#" class="btn btn-outline-secondary mx-2">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" style="width: 30px; height: 30px;">
+                                        Facebook
+                                    </a>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
