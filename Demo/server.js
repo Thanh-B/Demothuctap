@@ -4,24 +4,15 @@ const session = require('express-session');
 const connect = require('./connect.js');  // Kết nối với MongoDB
 const adminController = require('./controllers/adminController');
 const authController = require('./controllers/authController');
-<<<<<<< HEAD
-const categoryRoutes = require('./routes/categoryRoutes');  // Import router cho danh mục sản phẩm
+const categoryRoutes = require('./routes/categoryRoutes'); 
 const brandRoutes = require('./routes/brandRoutes');
 const productRoutes = require('./routes/productRoutes');
-=======
-const customerRouter = require('./routes/customerRouter'); // Import router cho danh mục sản phẩm
-
->>>>>>> Customer-CRUD
+const customerRouter = require('./routes/customerRouter');
 const app = express();
 
-// Cấu hình để phục vụ các tài nguyên tĩnh (CSS, font, js, images)
 app.use(express.static(path.join(__dirname, 'assets')));
-<<<<<<< HEAD
 app.use('/uploads/', express.static(path.join(__dirname, 'uploads/')));
-=======
 
-
->>>>>>> Customer-CRUD
 // Cấu hình session và các middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -32,11 +23,8 @@ app.use(session({
     resave: false,
     saveUninitialized: true
 }));
-
-// Kết nối đến MongoDB
 connect();
 
-// Route cho trang chính (redirect đến /admin)
 app.get('/', (req, res) => {
     res.redirect('/admin');
 });
@@ -65,18 +53,16 @@ app.get('/admin', adminController.getAdminPage);
 app.get('/logout', adminController.logout);
 
 // Sử dụng các route danh mục
-<<<<<<< HEAD
+
 app.use('/', categoryRoutes);  // Đảm bảo chỉ định đúng tiền tố route
 
 app.use('/', brandRoutes);  
 
 app.use('/', productRoutes);  
-=======
+
 app.use('/', customerRouter);
 // Đảm bảo chỉ định đúng tiền tố route
 
-// Lắng nghe server
->>>>>>> Customer-CRUD
 app.listen(3000, () => {
     console.log('Server đang chạy tại http://localhost:3000');
 });
