@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Đăng ký</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
+  <!-- Custom CSS -->
+  <link href="css/basic.css" rel="stylesheet" />
+  <link href="css/custom.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+</head>
+
+<body class="sub_page">
+  <div class="hero_area"></div>
+
+  <section class="contact_section layout_padding">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="offset-lg-2 col-md-10 offset-md-1">
+          <div class="heading_container">
+          
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-center mt-5">
+        <div class="col-md-6 col-sm-8 col-xs-10">
+          <div class="card shadow-lg border-0">
+            <div class="card-header bg-info text-white text-center">
+              <h4><i class="fas fa-user-plus"></i> Đăng ký tài khoản mới</h4>
+            </div>
+            <div class="card-body">
+              <form action="/register" method="POST">
+                <div class="form-group mb-3">
+                  <label for="username" class="form-label"><i class="fas fa-user"></i> Tên người dùng:</label>
+                  <input type="text" name="username" id="username" class="form-control" placeholder="Nhập tên người dùng" required>
+                </div>
+      
+                <div class="form-group mb-3">
+                  <label for="email" class="form-label"><i class="fas fa-envelope"></i> Email:</label>
+                  <input type="email" name="email" id="email" class="form-control" placeholder="Nhập email" required>
+                </div>
+      
+                <div class="form-group mb-3">
+                  <label for="password" class="form-label"><i class="fas fa-lock"></i> Mật khẩu:</label>
+                  <input type="password" name="password" id="password" class="form-control" placeholder="Nhập mật khẩu" required>
+                </div>
+      
+                <div class="form-group mb-4">
+                  <label for="rePassword" class="form-label"><i class="fas fa-lock"></i> Xác nhận mật khẩu:</label>
+                  <input type="password" name="rePassword" id="rePassword" class="form-control" placeholder="Nhập lại mật khẩu" required>
+                </div>
+      
+                <div class="d-grid">
+                  <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-check"></i> Đăng ký</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-4">
+        <p>Hoặc đăng ký với:</p>
+        <div class="d-flex justify-content-center">
+          <a href="#" class="btn btn-outline-secondary mr-2">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram" style="width: 30px; height: 30px; margin-right: 10px;">
+            Instagram
+          </a>
+          <a href="#" class="btn btn-outline-secondary">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" style="width: 30px; height: 30px;">
+            Facebook
+          </a>
+        </div>
+      </div>
+
+      <p class="text-center mt-3">Nếu bạn đã có tài khoản, <a href="/login">đăng nhập tại đây</a>.</p>
+    </div>
+  </section>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
