@@ -12,7 +12,7 @@
     <!--CUSTOM BASIC STYLES-->
     <link href="css/basic.css" rel="stylesheet" />
     <!--CUSTOM MAIN STYLES-->
-    <link href="css/custom.css" rel="stylesheet" />
+    <link href="css/custom.css" rel="stylesheet" /> <!-- Sửa từ nrel thành rel -->
     <!-- GOOGLE FONTS-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
@@ -23,64 +23,85 @@
             padding: 10px 15px;
             color: #333;
         }
+        /* Đảm bảo bảng chiếm toàn bộ chiều rộng */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto; /* Thêm khả năng cuộn ngang nếu cần */
+}
+
+table {
+    width: 100%; /* Chiếm toàn bộ chiều rộng của phần tử cha */
+    border-collapse: collapse; /* Xóa khoảng cách giữa các ô */
+}
+
+/* Cải thiện kiểu dáng cho các cột và nội dung bảng */
+th, td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+   /* Giữ cấu trúc ban đầu và thêm hiệu ứng nổi khi nhấn vào */
+   .nav-link {
+    font-size: 14px;
+    color: #333;
+    padding: 8px 15px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    position: relative; /* Thêm thuộc tính này để dễ dàng điều chỉnh vị trí */
+}
+
+/* Hiệu ứng hover cho các mục menu */
+.nav-link:hover {
+    background-color: #f8f9fa;
+    color: #007bff;
+    transform: scale(1.05);
+}
+
+/* Thêm hiệu ứng khi nhấn vào các mục menu */
+.nav-link:active {
+    background-color: #007bff; /* Màu nền khi nhấn */
+    color: #ffffff; /* Màu chữ khi nhấn */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Tạo hiệu ứng bóng đổ */
+    transform: scale(0.98); /* Hiệu ứng thu nhỏ khi nhấn */
+}
+
+/* Hiệu ứng hover cho các mục dropdown */
+.dropdown-item {
+    font-size: 14px;
+    padding: 8px 20px;
+    color: #333;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+/* Hiệu ứng hover cho các mục dropdown */
+.dropdown-item:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* Hiệu ứng khi nhấn vào các mục dropdown */
+.dropdown-item:active {
+    background-color: #0056b3;
+    color: #fff;
+}
+   
+/* Tùy chỉnh giao diện khi hover */
+table tbody tr:hover {
+    background-color: #f1f1f1;
+}
 
         /* Thêm hiệu ứng hover */
         .dropdown-item:hover {
             background-color: #f8f9fa;
         }
-
-        /* Giữ cấu trúc ban đầu và thêm hiệu ứng nổi khi nhấn vào */
-        .nav-link {
-            font-size: 14px;
-            color: #333;
-            padding: 8px 15px;
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
-            transition: all 0.3s ease;
-            position: relative; /* Thêm thuộc tính này để dễ dàng điều chỉnh vị trí */
-        }
-
-        /* Hiệu ứng hover cho các mục menu */
-        .nav-link:hover {
-            background-color: #f8f9fa;
-            color: #007bff;
-            transform: scale(1.05);
-        }
-
-        /* Thêm hiệu ứng khi nhấn vào các mục menu */
-        .nav-link:active {
-            background-color: #007bff; /* Màu nền khi nhấn */
-            color: #ffffff; /* Màu chữ khi nhấn */
-            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Tạo hiệu ứng bóng đổ */
-            transform: scale(0.98); /* Hiệu ứng thu nhỏ khi nhấn */
-        }
-
-        /* Hiệu ứng hover cho các mục dropdown */
-        .dropdown-item {
-            font-size: 14px;
-            padding: 8px 20px;
-            color: #333;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        /* Hiệu ứng hover cho các mục dropdown */
-        .dropdown-item:hover {
-            background-color: #007bff;
-            color: #fff;
-        }
-
-        /* Hiệu ứng khi nhấn vào các mục dropdown */
-        .dropdown-item:active {
-            background-color: #0056b3;
-            color: #fff;
-        }
     </style>
 </head>
 <body>
     <div id="wrapper">
-        <!-- NAV TOP -->
+    
         <nav class="navbar navbar-default navbar-cls-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
@@ -95,10 +116,9 @@
             <div class="header-right">
                 <a href="message-task.html" class="btn btn-info" title="New Message"><b>30</b><i class="fa fa-envelope-o fa-2x"></i></a>
                 <a href="message-task.html" class="btn btn-primary" title="New Task"><b>40</b><i class="fa fa-bars fa-2x"></i></a>
-                <a href="/logout" class="btn btn-danger" title="Logout"><i class="fa fa-exclamation-circle fa-2x"></i></a>
+                <a href="login.html" class="btn btn-danger" title="Logout"><i class="fa fa-exclamation-circle fa-2x"></i></a>
             </div>
         </nav>
-
         <nav class="navbar-default navbar-side" role="navigation">
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="nav flex-column" id="main-menu">
@@ -108,7 +128,7 @@
                             <i class="fa fa-sign-out-alt"></i> Đăng xuất
                         </a>
                     </li>
-
+        
                     <!-- Khách hàng -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="customerDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -116,10 +136,10 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="customerDropdown">
                             <a class="dropdown-item" href="/customer"><i class="fa fa-user-plus"></i> Thêm khách hàng</a>
-                            <a class="dropdown-item" href="/selectcustomer"><i class="fa fa-list-alt"></i> Danh sách khách hàng</a>                            
+                            <a class="dropdown-item" href="/selectcustomer"><i class="fa fa-list-alt"></i> Danh sách khách hàng</a>
                         </div>
                     </li>
-
+        
                     <!-- Category -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="categoryDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -129,8 +149,8 @@
                             <a class="dropdown-item" href="/category"><i class="fa fa-plus-square"></i> Thêm Category</a>
                             <a class="dropdown-item" href="/selectcategory"><i class="fa fa-list"></i> Danh sách Category</a>
                         </div>
-                    </li>                    
-
+                    </li>
+        
                     <!-- Hãng sản xuất -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="brandDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -141,7 +161,7 @@
                             <a class="dropdown-item" href="/selectbrand"><i class="fa fa-building"></i> Danh sách nhà xuất bản</a>
                         </div>
                     </li>
-
+        
                     <!-- Sản phẩm -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="productDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -152,7 +172,7 @@
                             <a class="dropdown-item" href="/selectproduct"><i class="fa fa-box"></i> Danh sách sản phẩm</a>
                         </div>
                     </li>
-
+        
                     <!-- Đơn hàng -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="orderDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -162,7 +182,7 @@
                             <a class="dropdown-item" href="/selectorder"><i class="fa fa-list-alt"></i> Danh sách đơn hàng</a>
                         </div>
                     </li>
-
+        
                     <!-- Báo cáo -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="reportDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -176,65 +196,79 @@
                 </ul>
             </div>
         </nav>
-
-        <!-- Page content -->
+        
+        <!-- /. NAV SIDE  -->
         <div id="page-wrapper">
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1 class="page-head-line">Dashboard</h1>
-                        <h1 class="page-subhead-line">Quản lý hệ thống sản phẩm và khách hàng</h1>
+                        <h1 class="page-head-line">CUSTOMER Table</h1>
+                        <h1 class="page-subhead-line">This is dummy text, you can replace it with your original text. </h1>
                     </div>
                 </div>
-
-                <!-- Thêm các thông tin thống kê trong Dashboard -->
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                Tổng số sản phẩm
-                            </div>
-                            <div class="panel-body">
-                                <h3></h3>
+                <!-- /. ROW  -->
+                <div class="col-md-12">
+                    <!-- Basic Table -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            DANH SÁCH KHÁCH HÀNG
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table border="1">
+                                    <thead>
+                                        <tr>
+                                            <th>Mã Khách Hàng</th>
+                                            <th>Tên</th>
+                                            <th>Giới Tính</th>
+                                            <th>Địa Chỉ</th>
+                                            <th>Số Điện Thoại</th>
+                                            <th>Email</th>
+                                            <th colspan="2">Tùy chọn</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% customers.forEach(customer => { %>
+                                            <tr>
+                                                <td><%= customer.customerid %></td>
+                                                <td><%= customer.name %></td>
+                                                <td><%= customer.gender %></td>
+                                                <td><%= customer.address %></td>
+                                                <td><%= customer.phone %></td>
+                                                <td><%= customer.email %></td>
+                                                <td>
+                                                    <a href="/deletecustomer/<%= customer._id %>" class="action-link">Xóa</a>
+                                                </td>
+                                                <td>
+                                                    <a href="/updatecustomer/<%= customer._id %>" class="action-link">Cập nhật</a>
+                                                </td>
+                                            </tr>
+                                        <% }); %>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="panel panel-success">
-                            <div class="panel-heading">
-                                Tổng số khách hàng
-                            </div>
-                            <div class="panel-body">
-                                <h3></h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="panel panel-warning">
-                            <div class="panel-heading">
-                                Tổng số đơn hàng
-                            </div>
-                            <div class="panel-body">
-                                <h3></h3> 
-                            </div>
-                        </div>
-                    </div>
+                    <!-- End Basic Table -->
                 </div>
             </div>
+            <!-- /. ROW  -->
         </div>
-
+        <!-- /. PAGE WRAPPER  -->
     </div>
-
+    <!-- /. WRAPPER  -->
+    
+    <!-- /. FOOTER  -->
+    <!-- SCRIPTS - AT THE BOTTOM TO REDUCE THE LOAD TIME-->
     <!-- JQUERY SCRIPTS -->
-    <script src="js/jquery-1.10.2.js"></script>
+    <script src="assets/js/jquery-1.10.2.js"></script>
     <!-- BOOTSTRAP SCRIPTS -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
     <!-- METISMENU SCRIPTS -->
-    <script src="js/jquery.metisMenu.js"></script>
+    <script src="assets/js/jquery.metisMenu.js"></script>
     <!-- CUSTOM SCRIPTS -->
-    <script src="js/custom.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-
+    <script src="assets/js/custom.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
