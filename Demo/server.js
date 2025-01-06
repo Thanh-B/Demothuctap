@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const session = require('express-session');
-const connect = require('./connect.js');  // Kết nối với MongoDB
+const connect = require('./connect.js');
 const adminController = require('./controllers/adminController');
 const authController = require('./controllers/authController');
 const categoryRoutes = require('./routes/categoryRoutes'); 
