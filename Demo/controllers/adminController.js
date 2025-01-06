@@ -1,6 +1,6 @@
-// const Product = require('../models/productModel');
-// const Customer = require('../models/customerModel');
-// const Order = require('../models/orderModel');
+const Product = require('../models/product');
+const Customer = require('../models/customer');
+//const Order = require('../models/order');
 
 exports.getAdminPage = async (req, res) => {
     if (!req.session.userId) {
@@ -8,14 +8,14 @@ exports.getAdminPage = async (req, res) => {
     }
 
     try {
-        // const totalProducts = await Product.countDocuments();
-        // const totalCustomers = await Customer.countDocuments();
+         const totalProducts = await Product.countDocuments();
+         const totalCustomers = await Customer.countDocuments();
         // const totalOrders = await Order.countDocuments();
 
         res.render('admin', {
             username: req.session.username,
-           // totalProducts: totalProducts,
-            //totalCustomers: totalCustomers,
+            totalProducts: totalProducts,
+            totalCustomers: totalCustomers,
            // totalOrders: totalOrders
         });
     } catch (err) {
